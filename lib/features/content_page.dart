@@ -26,8 +26,9 @@ class _ContentPageState extends State<ContentPage> {
       body: Center(child: _contents.elementAt(currentTab)),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
-          currentTab = value;
-          setState(() {});
+          setState(() {
+            currentTab = value;
+          });
         },
         type: BottomNavigationBarType.fixed,
         items: const [

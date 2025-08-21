@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features/login/login_page.dart';
-import 'features/content/content_page.dart';
+import 'features/content_page.dart';
 import 'routes.dart';
 
 class MyApp extends StatelessWidget {
