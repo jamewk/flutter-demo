@@ -1,5 +1,6 @@
+import 'package:demo/core/utils/auth_provider.dart';
 import 'package:flutter/material.dart';
-import '../../routes.dart';
+import 'package:provider/provider.dart';
 import '../../widgets/index.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.pushReplacementNamed(context, Routes.login);
+              context.read<AuthProvider>().logout();
             },
           ),
         ],

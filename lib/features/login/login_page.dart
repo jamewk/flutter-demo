@@ -1,5 +1,6 @@
+import 'package:demo/core/utils/auth_provider.dart';
 import 'package:flutter/material.dart';
-import '../../routes.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,17 +13,6 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void _login() {
-    if (_usernameController.text == "admin" &&
-        _passwordController.text == "1234") {
-      Navigator.pushReplacementNamed(context, Routes.content);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Invalid username or password")),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +21,19 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.account_circle_rounded, size: 100, color: Colors.deepPurple),
+            Icon(
+              Icons.account_circle_rounded,
+              size: 100,
+              color: Color.fromRGBO(143, 148, 251, 1),
+            ),
             const SizedBox(height: 20),
             Text(
               "Login",
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(143, 148, 251, 1),
+              ),
             ),
             const SizedBox(height: 10),
             TextField(
@@ -49,11 +47,30 @@ class _LoginPageState extends State<LoginPage> {
               decoration: const InputDecoration(labelText: "Password"),
             ),
             const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _login,
-                child: const Text("Login"),
+            GestureDetector(
+              onTap: (){
+                context.read<AuthProvider>().login(username: _usernameController.text, password:  _passwordController.text);
+              },
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromRGBO(143, 148, 251, 1),
+                      Color.fromRGBO(143, 148, 251, .6),
+                    ],
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
