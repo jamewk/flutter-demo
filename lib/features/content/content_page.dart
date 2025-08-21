@@ -1,6 +1,5 @@
+import 'package:demo/features/home/home_page.dart';
 import 'package:flutter/material.dart';
-import '../../routes.dart';
-import '../../widgets/index.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({super.key});
@@ -10,33 +9,18 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
-  var currentTab = 0;
+  int currentTab = 0;
+  final List<Widget> _contents = <Widget>[
+    const HomePage(),
+    Text("Inbox", style: const TextStyle(fontSize: 20)),
+    Text("Orders", style: const TextStyle(fontSize: 20)),
+    Text("Profile", style: const TextStyle(fontSize: 20)),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Content Page"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, Routes.login);
-            },
-          ),
-        ],
-      ),
-      floatingActionButton: Builder(
-        builder: (context) {
-          return DialogExample();
-        },
-      ),
-      body: Center(
-        child: Text(
-          '🎉 Welcome! You are logged in tab: $currentTab',
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(child: _contents.elementAt(currentTab)),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
           currentTab = value;
