@@ -10,15 +10,34 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    context.read<AuthProvider>().checkLogin();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: context.watch<AuthProvider>().isLogin
-          ? ContentPage()
-          : const LoginPage(),
-    );
+    if (context.watch<AuthProvider>().loading) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(body: Center(child: CircularProgressIndicator())),
+      );
+    }else{
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: context.watch<AuthProvider>().isLogin
+            ? ContentPage()
+            : const LoginPage(),
+      );
+    }
   }
 }
