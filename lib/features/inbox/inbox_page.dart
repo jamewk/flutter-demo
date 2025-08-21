@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/index.dart';
 
 class InboxPage extends StatefulWidget {
   const InboxPage({super.key});
@@ -10,13 +11,8 @@ class InboxPage extends StatefulWidget {
 class _InboxPageState extends State<InboxPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          '🎉 Inbox Page',
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+    return Center(
+        child: PandaText(data: 'Inbox Page'),
+      );
   }
 }

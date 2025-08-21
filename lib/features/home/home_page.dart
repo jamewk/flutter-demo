@@ -25,10 +25,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Center(
-        child: Text(
-          '🎉 Welcome! You are logged in.',
-          style: const TextStyle(fontSize: 20),
-        ),
+        child: PandaText(data: '🎉 Welcome! You are logged in.'),
       ),
       floatingActionButton: Builder(
         builder: (context) {

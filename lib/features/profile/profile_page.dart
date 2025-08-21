@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/index.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -10,10 +12,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('🎉 Profile Page', style: const TextStyle(fontSize: 20)),
-      ),
-    );
+    return Center(
+        child: PandaText(data: 'Profile Page'),
+      );
   }
 }

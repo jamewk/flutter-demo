@@ -1,3 +1,4 @@
+import 'package:demo/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class OrdersPage extends StatefulWidget {
@@ -10,13 +11,8 @@ class OrdersPage extends StatefulWidget {
 class _OrdersPageState extends State<OrdersPage> {
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-      body: Center(
-        child: Text(
-          '🎉 Orders Page',
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+     return Center(
+        child: PandaText(data: 'Orders Page'),
+      );
   }
 }
