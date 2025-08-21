@@ -1,4 +1,7 @@
 import 'package:demo/features/home/home_page.dart';
+import 'package:demo/features/inbox/inbox_page.dart';
+import 'package:demo/features/orders/orders_page.dart';
+import 'package:demo/features/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class ContentPage extends StatefulWidget {
@@ -12,9 +15,9 @@ class _ContentPageState extends State<ContentPage> {
   int currentTab = 0;
   final List<Widget> _contents = <Widget>[
     const HomePage(),
-    Text("Inbox", style: const TextStyle(fontSize: 20)),
-    Text("Orders", style: const TextStyle(fontSize: 20)),
-    Text("Profile", style: const TextStyle(fontSize: 20)),
+    const InboxPage(),
+    const OrdersPage(),
+    const ProfilePage()
   ];
 
   @override
