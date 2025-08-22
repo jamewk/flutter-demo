@@ -12,7 +12,7 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
-  int currentTab = 0;
+  int _currentTab = 0;
   final List<Widget> _contents = <Widget>[
     const HomePage(),
     const InboxPage(),
@@ -23,19 +23,21 @@ class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: _contents.elementAt(currentTab)),
+      body: Center(child: _contents.elementAt(_currentTab)),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
           setState(() {
-            currentTab = value;
+            _currentTab = value;
           });
         },
         type: BottomNavigationBarType.fixed,
+        currentIndex: _currentTab,
+        selectedItemColor: Color.fromRGBO(143, 148, 251, 1),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Orders'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
         ],
       ),
     );

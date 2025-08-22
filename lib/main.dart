@@ -1,6 +1,6 @@
 import 'package:demo/core/utils/auth_provider.dart';
 import 'package:demo/features/content_page.dart';
-import 'package:demo/features/login/login_page.dart';
+import 'package:demo/features/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
