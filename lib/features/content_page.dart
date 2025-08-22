@@ -13,6 +13,7 @@ class ContentPage extends StatefulWidget {
 
 class _ContentPageState extends State<ContentPage> {
   int _currentTab = 0;
+  
   final List<Widget> _contents = <Widget>[
     const HomePage(),
     const InboxPage(),
