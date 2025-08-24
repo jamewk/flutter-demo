@@ -1,4 +1,5 @@
 import 'package:demo/core/providers/auth_provider.dart';
+import 'package:demo/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _login(BuildContext context) async {
     await Provider.of<AuthProvider>(context, listen: false).login("8ce0bf89-763a-4457-b841-b7b72c412acc");
     if (context.mounted) {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, Routes.home);
     }
   }
 

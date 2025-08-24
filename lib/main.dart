@@ -2,6 +2,7 @@ import 'package:demo/core/providers/auth_provider.dart';
 import 'package:demo/features/content_page.dart';
 import 'package:demo/features/login_page.dart';
 import 'package:demo/features/splash_page.dart';
+import 'package:demo/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +21,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/', // เริ่มต้นที่ Splash
+      initialRoute: Routes.splash, // เริ่มต้นที่ Splash
       routes: {
-        '/': (context) => const SplashPage(),
-        '/login': (context) => const LoginPage(),
-        '/home': (context) => const ContentPage(),
+        Routes.splash: (context) => const SplashPage(),
+        Routes.login: (context) => const LoginPage(),
+        Routes.home: (context) => const ContentPage(),
       },
     );
   }

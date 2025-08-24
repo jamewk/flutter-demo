@@ -1,4 +1,5 @@
 import 'package:demo/core/providers/auth_provider.dart';
+import 'package:demo/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/index.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     Future<void> logout(context) async {
       await auth.logout();
       if (context.mounted) {
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.pushReplacementNamed(context, Routes.login);
       }
     }
 
@@ -32,7 +33,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Center(child: Text("Welcome! Your token is: ${auth.token}")),
+      body: Container(
+        margin: const EdgeInsets.all(20.0),
+        child: Center(child: Text("Welcome! Your token is: ${auth.token}")),
+      ),
       floatingActionButton: Builder(
         builder: (context) {
           return DialogExample();
