@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: Routes.splash, // เริ่มต้นที่ Splash
       routes: {
-        Routes.splash: (context) => const SplashPage(),
+        Routes.splash: (context) => const SplashPage() ,
         Routes.login: (context) => const LoginPage(),
         Routes.home: (context) => const ContentPage(),
       },

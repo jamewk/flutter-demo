@@ -1,8 +1,10 @@
+import 'package:demo/bloc/counter_cubit.dart';
 import 'package:demo/features/home/home_page.dart';
 import 'package:demo/features/inbox/inbox_page.dart';
 import 'package:demo/features/orders/orders_page.dart';
 import 'package:demo/features/profile/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({super.key});
@@ -13,12 +15,12 @@ class ContentPage extends StatefulWidget {
 
 class _ContentPageState extends State<ContentPage> {
   int _currentTab = 0;
-  
+
   final List<Widget> _contents = <Widget>[
     const HomePage(),
     const InboxPage(),
-    const OrdersPage(),
-    const ProfilePage()
+    BlocProvider(create: (_) => CounterCubit(), child: const OrdersPage()),
+    const ProfilePage(),
   ];
 
   @override
@@ -38,7 +40,7 @@ class _ContentPageState extends State<ContentPage> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Orders'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
